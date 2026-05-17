@@ -4,119 +4,70 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+
+const questions = [
+  {
+    id: 1,
+    text: "グループで活動するとき、あなたに近いのは？",
+    options: [
+      { text: "自分の世界観を大切にしたい", instrument: "violin" },
+      { text: "周りを見ながら柔軟に動きたい", instrument: "clarinet" },
+      { text: "計画を立てて落ち着いて進めたい", instrument: "cello" },
+      { text: "場を支える役割が好き", instrument: "horn" }
+    ]
+  },
+  {
+    id: 2,
+    text: "初対面の人が多い場では？",
+    options: [
+      "自分から話しかける",
+      "様子を見ながら合わせる",
+      "必要なときに話す",
+      "周りをサポートする"
+    ]
+  }
+];
+
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [answers, setAnswers] = useState({});
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <div className="container">
+      <header className="hero">
+        <h1>オーケストラ楽器診断</h1>
+        <p>6つの質問に答えて、あなたに合う楽器を診断します。</p>
+      </header>
 
-      <div className="ticks"></div>
+      <main>
+        {questions.map((question) => (
+          <section className="question-card" key={question.id}>
+            <h2>Q{question.id}. {question.text}</h2>
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            {question.options.map((option) => (
+              <label key={option.text}>
+                <input
+                  type="radio"
+                  name={`q${question.id}`}
+                  value={option.instrument}
+                  checked={answers[question.id] === option.instrument}
+                  onChange={() =>
+                    setAnswers({
+                      ...answers,
+                      [question.id]: option.instrument
+                    })
+                  }
+                />
+                {option.text}
+              </label>
+            ))}
+          </section>
+        ))}
+        <pre>{JSON.stringify(answers, null, 2)}</pre>
+        <button type="button">診断する</button>
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;
