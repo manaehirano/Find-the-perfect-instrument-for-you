@@ -1,0 +1,102 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f1ea;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.diagnosis-container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+h1 {
+    color: #5c4033;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.screen {
+    transition: all 0.3s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* プログレスバー */
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 8px;
+    width: 100%;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+#progress {
+    background-color: #8b5a2b;
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* ボタンと選択肢 */
+button, .choice-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 12px 0;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+button:hover, .choice-btn:hover {
+    background-color: #f9f5f0;
+    border-color: #8b5a2b;
+    transform: translateY(-1px);
+}
+
+#start-btn, #retry-btn {
+    background-color: #8b5a2b;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border: none;
+}
+
+#start-btn:hover, #retry-btn:hover {
+    background-color: #704822;
+}
+
+/* 結果表示 */
+#instrument-result {
+    font-size: 32px;
+    font-weight: bold;
+    color: #8b5a2b;
+    margin: 20px 0;
+}
+
+#result-description {
+    line-height: 1.6;
+    text-align: left;
+    background-color: #faf8f5;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #8b5a2b;
+    margin-bottom: 25px;
+}
