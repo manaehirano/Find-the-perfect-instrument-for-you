@@ -1,39 +1,13 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>あなたをオーケストラ楽器に例えると？診断</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="diagnosis-container">
-        <h1>🎻 あなたをオーケストラ楽器に例えると？</h1>
-        
-        <!-- スタート画面 -->
-        <div id="start-screen" class="screen">
-            <p>6つの質問に答えて、あなたの性格にぴったりのオーケストラ楽器を診断しましょう！</p>
-            <button id="start-btn">診断を始める</button>
-        </div>
-
-        <!-- クイズ画面 -->
-        <div id="quiz-screen" class="screen hidden">
-            <div class="progress-bar"><div id="progress"></div></div>
-            <h2 id="question-text">質問がここに表示されます</h2>
-            <div id="choices-container">
-                <!-- 選択肢がJavaScriptで挿入されます -->
-            </div>
-        </div>
-
-        <!-- 結果表示画面 -->
-        <div id="result-screen" class="screen hidden">
-            <h2>あなたの楽器は...</h2>
-            <div id="instrument-result">楽器名</div>
-            <p id="result-description">診断結果の説明文がここに表示されます。</p>
-            <button id="retry-btn">もう一度診断する</button>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>find-the-perfect-instrument-for-you</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
